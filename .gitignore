@@ -1,9 +1,10 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-backend/.env.developement
+backend/.env.development
 backend/.env.test
 backend/.env.production
+backend/data/
 dist
 tmp
 /out-tsc
