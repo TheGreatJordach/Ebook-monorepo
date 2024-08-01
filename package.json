@@ -3,7 +3,9 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "build": "npx nx build",
+        "start": "npx nx serve"
     },
     "private": true,
     "dependencies": {
