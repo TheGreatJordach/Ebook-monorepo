@@ -1,11 +1,12 @@
 services:
   mysql:
     image: mysql:5.7
+    env_file: .env.development
     restart: always
     container_name: development-mysql-container
     ports:
       - "3309:3306"
 
-    env_file: .env.development
+
     volumes:
       - ./data:/var/lib/mysql
