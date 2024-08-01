@@ -1,19 +1,23 @@
 {
   "version": 2,
-  "projects": {
-    "frontend": {
-      "root": "frontend",
-      "buildCommand": "npx nx build frontend",
-      "outputDirectory": "dist/apps/frontend"
+  "builds": [
+    {
+      "src": "frontend/**/*",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/apps/frontend"
+      }
     },
-    "backend": {
-      "root": "backend",
-      "buildCommand": "npx nx build backend",
-      "outputDirectory": "dist/apps/backend"
+    {
+      "src": "backend/**/*",
+      "use": "@vercel/node",
+      "config": {
+        "distDir": "dist/apps/backend"
+      }
     }
-  },
+  ],
   "routes": [
-    { "src": "/(.*)", "dest": "/api/$1", "continue": true },
-    { "src": "/api/(.*)", "dest": "dist/apps/backend/$1" }
+    { "src": "/api/(.*)", "dest": "backend/dist/apps/backend/$1" },
+    { "src": "/(.*)", "dest": "frontend/dist/apps/frontend/$1" }
   ]
 }
